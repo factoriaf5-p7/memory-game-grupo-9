@@ -10,7 +10,7 @@ describe('Game Page',()=>{
           <Game/>
         </MemoryRouter>)
     });
-    test('text Game should be render',()=>{
+    test('Superhero Memory Game',()=>{
         expect(screen.getByText(/game/i)).toBeInTheDocument();
     })
 })
