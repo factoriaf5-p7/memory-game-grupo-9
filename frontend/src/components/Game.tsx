@@ -1,5 +1,8 @@
 import { Card } from "./Card";
 import data from '../data/data.json'
+import shuffle from 'lodash.shuffle'
+import { useEffect, useState } from "react";
+
 export function Game() {
 
   return (
@@ -12,7 +15,7 @@ export function Game() {
           </h1>
         </div>
         <div className="grid grid-cols-6 gap-2 mt-4">
-        {data.map((card, ind) => {
+        {shuffle(data).map((card, ind) => {
         return <Card {...card} key={card.name + ind}/>
       })}
         </div>
