@@ -1,11 +1,6 @@
+import { Card } from "./Card";
+import data from '../data/data.json'
 export function Game() {
-  const imageSources = Array(24).fill('carta.jpg');
-
-  const imageElements = imageSources.map((source, index) => (
-    <div key={index} className="w-25 h-20">
-      <img src={source} alt="" loading="lazy" className="object-cover w-full h-full" />
-    </div>
-  ));
 
   return (
     <div className="bg-cover bg-no-repeat bg-center min-h-screen bg-[url('background.jpg')]">
@@ -17,7 +12,9 @@ export function Game() {
           </h1>
         </div>
         <div className="grid grid-cols-6 gap-2 mt-4">
-          {imageElements}
+        {data.map((card, ind) => {
+        return <Card {...card} key={card.name + ind}/>
+      })}
         </div>
       </div>
     </div>
