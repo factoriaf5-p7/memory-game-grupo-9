@@ -1,26 +1,24 @@
-import { Injectable } from '@nestjs/common';
-import { CreateGameDto } from './dto/create-game.dto';
-import { UpdateGameDto } from './dto/update-game.dto';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { jsonData } from './data';
 
 @Injectable()
 export class GameService {
-  create(createGameDto: CreateGameDto) {
-    return 'This action adds a new game';
+  async getGameAll(): Promise<any> {
+    return jsonData;
   }
 
-  findAll() {
-    return `This action returns all game`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} game`;
-  }
-
-  update(id: number, updateGameDto: UpdateGameDto) {
-    return `This action updates a #${id} game`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} game`;
+  async findByName(name: string): Promise<any> {
+    let result;
+    for (const category of jsonData) {
+      result = category[name];
+      if (result) {
+        return result;
+      }
+    }
+    throw new NotFoundException(`Game ${name} not found`);
   }
 }
+
+//controler llame al serivce y que devuelva el []
+//service haga el fltrado y me devuelva el []
+//en los dos escribir el error!
