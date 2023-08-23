@@ -1,7 +1,7 @@
 import { Card } from "./Card";
 import data from '../data/data.json'
 import shuffle from 'lodash.shuffle'
-import { useEffect, useState } from "react";
+ 
 
 export function Game() {
 

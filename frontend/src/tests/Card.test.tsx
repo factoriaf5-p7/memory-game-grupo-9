@@ -12,6 +12,34 @@ test('loads and displays greeting', async () => {
   // await screen.findByRole('heading')
 
   // ASSERT
-  expect(screen.getByAltText('Image of batman.png')).toBeVisible()
+ expect(screen.getByAltText('Imagen de batman.png')).toBeVisible(); 
   // expect(screen.getByRole('button')).toBeDisabled()
-})
+}); 
+
+test('card flips on click', () => {
+  // ARRANGE
+  render(<Card img="batman.png" name="hello there" />);
+
+  // ACT
+  const cardElement = screen.getByTestId('card');
+  userEvent.click(cardElement);
+
+  // ASSERT
+  const frontSide = screen.getByTestId('front-side');
+  const backSide = screen.getByTestId('back-side');
+
+  expect(frontSide).toHaveTextContent('Hola!');
+  expect(backSide).toContainElement(screen.getByAltText('Imagen de batman.png'));
+});
+
+test('card content displays correctly', () => {
+  // ARRANGE
+  render(<Card img="batman.png" name="hello there" />);
+
+  // ACT
+  const frontSide = screen.getByTestId('front-side');
+  const backSide = screen.getByTestId('back-side');
+
+  expect(frontSide).toHaveTextContent('Hola!');
+  expect(backSide).toContainElement(screen.getByAltText('Imagen de batman.png'));
+});
