@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import { Card } from './Card';
+import { number } from 'prop-types';
 
 interface Hero {
   name: string;
@@ -14,6 +15,17 @@ interface Group {
 
 interface SelectedItemsProps {
   selectedItems: Hero[];
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export enum Dificulty{
+ 'facil', 
+  'medio', 
+  'dificil', 
+}
+interface FormSettingsProps{
+  title: string;
+  options: string [] | Dificulty []
 }
 
 function SelectedItems({ selectedItems }: SelectedItemsProps) {
@@ -30,7 +42,7 @@ function SelectedItems({ selectedItems }: SelectedItemsProps) {
   );
 }
 
-export default function FormSettings({title, options}) {
+export default function FormSettings({title, options} : FormSettingsProps) {
   const [groups, setGroups] = useState<string[]>(options);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<Hero[]>([]);
@@ -65,8 +77,8 @@ export default function FormSettings({title, options}) {
               checked={selectedGroup === groupName}
               onChange={() => handleOptionChange(groupName)}
               className="mr-2 leading-tight"
-            />
-            {groupName}
+            />           
+            { typeof groupName === 'number' ?  Dificulty[groupName]:groupName }
           </label>
         ))}
       </div>
