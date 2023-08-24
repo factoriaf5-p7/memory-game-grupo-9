@@ -5,8 +5,8 @@ export function Settings() {
 
   return (
     <div> 
-     <FormSettings title="Elegir Tema" options={["superheroes", "kombat"]} />
-     <FormSettings title="Elegir dificultad " options={["facil", "medio", "dificil"]} />
+     <FormSettings title="Elegir Tema" options={["superheroes", "kombat" ]} />
+     <FormSettings title="Elegir dificultad " options={[0, 1, 2]} />
     </div>
   )
 }

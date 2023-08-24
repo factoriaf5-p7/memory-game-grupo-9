@@ -16,6 +16,17 @@ interface SelectedItemsProps {
   selectedItems: Hero[];
 }
 
+export enum Dificulty {
+  'facíl',
+  'medio',
+  'dificil',
+}
+
+interface FormSettingsProps {
+  title: string
+  options: string[] | Dificulty[]
+}
+
 function SelectedItems({ selectedItems }: SelectedItemsProps) {
   return (
     <div className="mt-4">
@@ -30,7 +41,7 @@ function SelectedItems({ selectedItems }: SelectedItemsProps) {
   );
 }
 
-export default function FormSettings({title, options}) {
+export default function FormSettings({title, options}: FormSettingsProps) {
   const [groups, setGroups] = useState<string[]>(options);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<Hero[]>([]);
@@ -44,12 +55,12 @@ export default function FormSettings({title, options}) {
     setSelectedGroup(groupName);
     console.log(`Seleccionado: ${groupName}`);
 
-    const selectedItemsData = data.find((group) => Object.keys(group)[0] === groupName) as Group;
-    if (selectedItemsData.superheroes) {
-      setSelectedItems(selectedItemsData.superheroes);
-    } else if (selectedItemsData.kombat) {
-      setSelectedItems(selectedItemsData.kombat[0].kombat);
-    }
+    // const selectedItemsData = data.find((group) => Object.keys(group)[0] === groupName) as Group;
+    // if (selectedItemsData.superheroes) {
+    //   setSelectedItems(selectedItemsData.superheroes);
+    // } else if (selectedItemsData.kombat) {
+    //   setSelectedItems(selectedItemsData.kombat[0].kombat);
+    // }
   };
 
   return (
