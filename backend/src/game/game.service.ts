@@ -3,10 +3,11 @@ import { jsonData } from './data';
 
 @Injectable()
 export class GameService {
-  async getThemas(): Promise<any> {
+  async getSettings(): Promise<any> {
     const themas = jsonData.map((themas) => Object.keys(themas)[0]);
-    console.log(themas);
-    return themas;
+    const settings = { themas, difficulty: [0, 1, 2] };
+    console.log(settings);
+    return settings;
   }
 
   async findByName(name: string): Promise<any> {

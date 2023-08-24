@@ -5,9 +5,9 @@ import { GameService } from './game.service';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
-  @Get('themas')
-  async getThemas() {
-    return this.gameService.getThemas();
+  @Get('settings')
+  async getSettings() {
+    return this.gameService.getSettings();
   }
 
   @Get(':name')
