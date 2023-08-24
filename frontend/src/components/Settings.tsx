@@ -1,5 +1,10 @@
+import ButtonThema from "./ButtonThema";
+
+ 
 export function Settings() {
   return (
-    <div>Settings</div>
+    <div> 
+     <ButtonThema/>
+    </div>
   )
 }

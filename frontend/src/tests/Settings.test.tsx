@@ -4,13 +4,14 @@ import {
   MemoryRouter,
 } from "react-router-dom";
 
-describe('Settings Page',()=>{
-    beforeEach(()=>{
-        render(<MemoryRouter initialEntries = {["/settings"]}>
-          <Settings/>
-        </MemoryRouter>)
-    });
-    test('Login should have a valid form',()=>{
-        expect(screen.getByText(/settings/i)).toBeInTheDocument();
-    })
-})
+describe('Settings Page', () => {
+  test('Login should have a valid form', () => {
+    render(
+      <MemoryRouter initialEntries={["/settings"]}>
+        <Settings />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText(/Elige el tema:/i)).toBeInTheDocument();
+  });
+});
