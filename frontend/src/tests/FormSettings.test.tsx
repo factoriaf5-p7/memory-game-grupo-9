@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, jest } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import FormSettings from '../components/FormSettings';
 
 const options = ['group1', 'group2']; // Replace with actual options
