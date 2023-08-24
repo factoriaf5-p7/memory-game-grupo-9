@@ -3,22 +3,30 @@ import data from '../data/data.json'
 import shuffle from 'lodash.shuffle'
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
  
 interface UserDetails {
   id: number;
   name: string;
 }
 
+interface HomeLoaderData {
+  date: string;
+}
+
 export function Game() {
-const fetchGroups = async (): Promise<UserDetails[]> => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
-    console.log(res.json())
-    return res.json()
-  }
+  let dataLoader = useLoaderData() as HomeLoaderData;
+  const { isLoading, error, dataa } = useQuery({
+    queryKey: ['repoData'],
+    queryFn: () =>
+      fetch('https://api.github.com/repos/TanStack/query').then(
+        (res) => res.json(),
+      ),
+  })
+console.log(dataa, error, dataLoader)
 
-const { dataa } = useQuery<UserDetails[], Error>({ queryKey: ['groups'],queryFn: fetchGroups})
+ const superheroes = data[0].superheroes.concat(data[0].superheroes)
 
-console.log(dataa)
 
   return (
     <div className="bg-cover bg-no-repeat bg-center min-h-screen relative bg-[url('background.jpg')]">
@@ -30,7 +38,7 @@ console.log(dataa)
           </h1>
         </div>
         <div className="grid grid-cols-6 gap-2 mt-4">
-        {shuffle(data).map((card, ind) => {
+        {shuffle(superheroes).map((card, ind) => {
         return <Card {...card} key={card.name + ind}/>
       })}
         </div>
@@ -38,3 +46,4 @@ console.log(dataa)
     </div>
   );
 }
+

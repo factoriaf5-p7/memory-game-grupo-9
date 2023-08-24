@@ -1,5 +1,15 @@
+import { Outlet } from "react-router-dom";
+import FormSettings from "./FormSettings";
+import { Dificulty } from "./FormSettings";
+
+ 
 export function Settings() {
+
   return (
-    <div>Settings</div>
+    <div> 
+     <FormSettings title="Elegir Tema" options={["superheroes", "kombat" ]} />
+     <FormSettings title="Elegir dificultad " options={[0, 1, 2]} />
+     <Outlet />
+    </div>
   )
 }

@@ -16,26 +16,38 @@ describe('GameController', () => {
     service = module.get<GameService>(GameService);
   });
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
+  describe('root', () => {
+    it('should be defined', () => {
+      expect(controller).toBeDefined();
+    });
   });
 
-  describe('getGameAll', () => {
+  describe('getThemas', () => {
     it('should return an array of games', async () => {
+      // Arrange
       const result = ['game1', 'game2'];
-      jest.spyOn(service, 'getGameAll').mockResolvedValue(result);
+      jest.spyOn(service, 'getThemas').mockResolvedValue(result);
 
-      expect(await controller.getGameAll()).toBe(result);
+      // Act
+      const games = await controller.getThemas();
+
+      // Assert
+      expect(games).toBe(result);
     });
   });
 
   describe('findByName', () => {
     it('should return a game by name', async () => {
+      // Arrange
       const gameName = 'game1';
       const result = { name: gameName /* other properties */ };
       jest.spyOn(service, 'findByName').mockResolvedValue(result);
 
-      expect(await controller.findByName(gameName)).toBe(result);
+      // Act
+      const game = await controller.findByName(gameName);
+
+      // Assert
+      expect(game).toBe(result);
     });
   });
 });

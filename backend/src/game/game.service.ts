@@ -3,8 +3,11 @@ import { jsonData } from './data';
 
 @Injectable()
 export class GameService {
-  async getGameAll(): Promise<any> {
-    return jsonData;
+  async getSettings(): Promise<any> {
+    const themas = jsonData.map((themas) => Object.keys(themas)[0]);
+    const settings = { themas, difficulty: [0, 1, 2] };
+    console.log(settings);
+    return settings;
   }
 
   async findByName(name: string): Promise<any> {
@@ -12,13 +15,10 @@ export class GameService {
     for (const category of jsonData) {
       result = category[name];
       if (result) {
+        console.log(category[name]);
         return result;
       }
     }
     throw new NotFoundException(`Game ${name} not found`);
   }
 }
-
-//controler llame al serivce y que devuelva el []
-//service haga el fltrado y me devuelva el []
-//en los dos escribir el error!
