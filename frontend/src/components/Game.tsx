@@ -4,6 +4,9 @@ import shuffle from 'lodash.shuffle'
  
 
 export function Game() {
+ const superheroes = data[0].superheroes.concat(data[0].superheroes)
+
+console.log(superheroes)
 
   return (
     <div className="bg-cover bg-no-repeat bg-center min-h-screen bg-[url('background.jpg')]">
@@ -15,7 +18,7 @@ export function Game() {
           </h1>
         </div>
         <div className="grid grid-cols-6 gap-2 mt-4">
-        {shuffle(data).map((card, ind) => {
+        {shuffle(superheroes).map((card, ind) => {
         return <Card {...card} key={card.name + ind}/>
       })}
         </div>
@@ -23,3 +26,4 @@ export function Game() {
     </div>
   );
 }
+

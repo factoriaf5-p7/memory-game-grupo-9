@@ -30,15 +30,15 @@ function SelectedItems({ selectedItems }: SelectedItemsProps) {
   );
 }
 
-export default function ButtonThema() {
-  const [groups, setGroups] = useState<string[]>([]);
+export default function FormSettings({title, options}) {
+  const [groups, setGroups] = useState<string[]>(options);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedItems, setSelectedItems] = useState<Hero[]>([]);
 
-  useEffect(() => {
-    const allGroups = data.map((group) => Object.keys(group)[0]);
-    setGroups(allGroups);
-  }, []);
+  // useEffect(() => {
+  //   const allGroups = data.map((group) => Object.keys(group)[0]);
+  //   setGroups(allGroups);
+  // }, []);
 
   const handleOptionChange = (groupName: string) => {
     setSelectedGroup(groupName);
@@ -55,8 +55,8 @@ export default function ButtonThema() {
   return (
     <div>
       <div className="p-4 rounded-md bg-gray-200 inline-block m-4">
-        <p className="text-lg font-bold mb-2">Elige el tema:</p>
-        {groups.map((groupName) => (
+        <p className="text-lg font-bold mb-2">{title}</p>
+        {groups && groups.map((groupName) => (
           <label key={groupName} className="block my-2">
             <input
               type="radio"

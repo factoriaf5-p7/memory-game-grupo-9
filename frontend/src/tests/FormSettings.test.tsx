@@ -1,10 +1,10 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'; 
 import userEvent from '@testing-library/user-event';
-import ButtonThema from '@/components/ButtonThema';  
+import FormSettings from '@/components/FormSettings';  
 
 test('renders option buttons and changes selection', async () => {
-    render(<ButtonThema />);
+    render(<FormSettings />);
   
     const radioButtons = await screen.findAllByRole('radio');
     expect(radioButtons.length).toBeGreaterThan(0);
@@ -18,7 +18,7 @@ test('renders option buttons and changes selection', async () => {
     });
   
   test('verify content of selected elements', async () => {
-    render(<ButtonThema />);
+    render(<FormSettings />);
   
     // Simulate changing selection
     const radioButtons = await screen.findAllByRole('radio');
