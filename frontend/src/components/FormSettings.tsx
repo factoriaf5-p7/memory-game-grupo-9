@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import data from '../data/data.json';
 import { Card } from './Card';
+import { number } from 'prop-types';
 
 interface Hero {
   name: string;
@@ -76,8 +77,8 @@ export default function FormSettings({title, options}: FormSettingsProps) {
               checked={selectedGroup === groupName}
               onChange={() => handleOptionChange(groupName)}
               className="mr-2 leading-tight"
-            />
-            {groupName}
+            />           
+            { typeof groupName === 'number' ?  Dificulty[groupName]:groupName }
           </label>
         ))}
       </div>
