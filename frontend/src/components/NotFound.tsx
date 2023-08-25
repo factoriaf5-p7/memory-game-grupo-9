@@ -1,11 +1,12 @@
-import Board from "./Board";
+import { Start } from "./Buttons/Start";
+
  
+
 export  function NotFound() {
   return (
     <div>NotFound
-
-
-      <div className="Restart"><Board/></div>
+      <div className="Start"><Start/></div>
+ 
 
   </div>
   )

@@ -1,12 +1,7 @@
-import { Card } from "./Card";
-import data from '../data/data.json'
-import shuffle from 'lodash.shuffle'
+import Board from "./Board";
  
 
 export function Game() {
- const superheroes = data[0].superheroes.concat(data[0].superheroes)
-
-console.log(superheroes)
 
   return (
     <div className="bg-cover bg-no-repeat bg-center min-h-screen bg-[url('background.jpg')]">
@@ -17,13 +12,10 @@ console.log(superheroes)
             Superhero Memory Game
           </h1>
         </div>
-        <div className="grid grid-cols-6 gap-2 mt-4">
-        {shuffle(superheroes).map((card, ind) => {
-        return <Card {...card} key={card.name + ind}/>
-      })}
+       <Board/>
         </div>
       </div>
-    </div>
+
   );
 }
 

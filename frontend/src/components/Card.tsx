@@ -14,7 +14,7 @@ export function Card({ name, img }: CardProps) {
   };
 
   return (
-    <div className={`card-box ${isFlipped ? 'flipped' : ''} `} onClick={handleCardClick} data-testid="card">
+    <div className={`card-box h28 aspect-square ${isFlipped ? 'flipped' : ''} `} onClick={handleCardClick} data-testid="card">
        <div className={`card w-full h-full transition-transform duration-500 transform ${isFlipped ? 'rotate-y-180' : ''} bg-[url('carta.jpg')]`}>
        <div className={`side front p-2 rounded-md shadow-md ${isFlipped ? 'hidden' : ''}`} data-testid="front-side">
           Hola!
