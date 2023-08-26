@@ -2,8 +2,8 @@ import { Card } from "./Card";
 import data from '../data/data.json'
 import shuffle from 'lodash.shuffle'
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import Board from "./Board";
  
 interface UserDetails {
   id: number;
@@ -37,13 +37,10 @@ console.log(dataa, error, dataLoader)
             Superhero Memory Game
           </h1>
         </div>
-        <div className="grid grid-cols-6 gap-2 mt-4">
-        {shuffle(superheroes).map((card, ind) => {
-        return <Card {...card} key={card.name + ind}/>
-      })}
+       <Board/>
         </div>
       </div>
-    </div>
+
   );
 }
 
