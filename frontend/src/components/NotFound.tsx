@@ -9,7 +9,7 @@ export  function NotFound() {
     <div>NotFound
       <div className="Start"><Start/></div>
       <div className="Ganaste"><Win/></div>
-
+      
 
   </div>
   )
