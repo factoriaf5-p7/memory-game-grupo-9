@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FormSettings from "./FormSettings";
-import ButtonsSettings from "./Buttons/ButtonsSettings";
+import ButtonsSettings from "./Items/ButtonsSettings";
 
 export function Settings() {
   const [dialogOpen, setDialogOpen] = useState(false);

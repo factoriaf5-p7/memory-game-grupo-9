@@ -1,4 +1,4 @@
-import { Restart } from "./Buttons/Restart";
+import { Restart } from "./Items/Restart";
 import { Card } from "./Card";
 import data from "../data/data.json";
 import shuffle from "lodash.shuffle";
