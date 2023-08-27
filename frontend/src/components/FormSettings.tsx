@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import data from '../data/data.json';
-import { Card } from './Card';
+import  Card  from './Card';
 import { number } from 'prop-types';
 
 interface Hero {
