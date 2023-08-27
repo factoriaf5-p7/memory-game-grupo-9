@@ -5,13 +5,26 @@ import { GameService } from './game.service';
 export class GameController {
   constructor(private readonly gameService: GameService) {}
 
+  @Get()
+  async getAllData() {
+    return this.gameService.getAllData();
+  }
+
   @Get('settings')
   async getSettings() {
     return this.gameService.getSettings();
   }
 
-  @Get(':name')
-  async findByName(@Param('name') name: string) {
-    return this.gameService.findByName(name);
+  @Get(':thema')
+  async findByThema(@Param('thema') thema: string) {
+    return this.gameService.findByThema(thema);
+  }
+
+  @Get(':thema/:name')
+  async findByNameAndThema(
+    @Param('thema') thema: string,
+    @Param('name') name: string,
+  ) {
+    return this.gameService.findByNameAndThema(thema, name);
   }
 }

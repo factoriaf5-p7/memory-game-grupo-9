@@ -3,22 +3,40 @@ import { jsonData } from './data';
 
 @Injectable()
 export class GameService {
-  async getSettings(): Promise<any> {
-    const themas = jsonData.map((themas) => Object.keys(themas)[0]);
-    const settings = { themas, difficulty: [0, 1, 2] };
-    console.log(settings);
-    return settings;
+  getAllData(): any {
+    console.log(jsonData);
+    return jsonData;
   }
 
-  async findByName(name: string): Promise<any> {
-    let result;
-    for (const category of jsonData) {
-      result = category[name];
-      if (result) {
-        console.log(category[name]);
-        return result;
-      }
-    }
-    throw new NotFoundException(`Game ${name} not found`);
+  getSettings(): any {
+    const settings = jsonData.map((theme) => {
+      return {
+        thema: theme.thema,
+        background: theme.background,
+      };
+    });
+    console.log(settings);
+    return { themas: settings };
   }
+
+  findByThema(thema: string): any {
+    const themeData = jsonData.find((theme) => theme.thema === thema);
+    if (themeData) {
+      return themeData.cards;
+    }
+    throw new NotFoundException(`Theme ${thema} not found`);
+  }
+  
+  findByNameAndThema(thema: string, name: string): any {
+    const themeData = jsonData.find((theme) => theme.thema === thema);
+    if (themeData) {
+      const card = themeData.cards.find((card) => card.name === name);
+      if (card) {
+        console.log(card);
+        return card;
+      }
+      throw new NotFoundException(`Card ${name} not found in theme ${thema}`);
+    }
+    throw new NotFoundException(`Theme ${thema} not found`);
+  } 
 }
