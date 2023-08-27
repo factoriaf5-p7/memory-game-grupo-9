@@ -5,27 +5,27 @@ import { useQuery } from "@tanstack/react-query";
 import { useLoaderData } from "react-router-dom";
 import Board from "./Board";
  
-interface UserDetails {
-  id: number;
-  name: string;
-}
+// interface UserDetails {
+//   id: number;
+//   name: string;
+// }
 
-interface HomeLoaderData {
-  date: string;
-}
+// interface HomeLoaderData {
+//   date: string;
+// }
 
 export function Game() {
-  let dataLoader = useLoaderData() as HomeLoaderData;
-  const { isLoading, error, dataa } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () =>
-      fetch('https://api.github.com/repos/TanStack/query').then(
-        (res) => res.json(),
-      ),
-  })
-console.log(dataa, error, dataLoader)
+//   let dataLoader = useLoaderData() as HomeLoaderData;
+//   const { isLoading, error, dataa } = useQuery({
+//     queryKey: ['repoData'],
+//     queryFn: () =>
+//       fetch('https://api.github.com/repos/TanStack/query').then(
+//         (res) => res.json(),
+//       ),
+//   })
+// console.log(dataa, error, dataLoader)
 
- const superheroes = data[0].superheroes.concat(data[0].superheroes)
+//  const superheroes = data[0].superheroes.concat(data[0].superheroes)
 
 
   return (

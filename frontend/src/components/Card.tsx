@@ -40,12 +40,12 @@ export function Card({ name, img, toggle, cardInd, cardR, isClicked }: CardProps
 
 
   return (
-    <div ref={cardRef} onClick={handleCardClick} className={`card-box h-28 aspect-square memory-card ${isFlipped ? '' : ''} `} data-testid="card" data-card-name={name}>
+    <div ref={cardRef} onClick={handleCardClick} className={`card-box h-28 aspect-square memory-card ${isFlipped ? '' : ''} `} data-testid={`card-${name.split(' ').join('-')}`} data-card-name={name}>
       <div className={`card w-full h-full transition-transform duration-500 transform ${isFlipped ? '' : ''} bg-[url('carta.jpg')]`}>
         <div className={`side flip front-face p-2 rounded-md shadow-md ${isFlipped ? 'hidden' : ''}`} data-testid="front-side">
-        </div>
+        </div>hola
         <div className={`side back-face bg-white p-2 rounded-md shadow-md ${isFlipped ? '' : 'hidden'}`} data-testid="back-side">
-          <img src={`/img/${img}`} alt={`Imagen de ${img}`} loading="lazy" className="w-full h-full" />
+          <img src={`/img/${img}`} alt={`Imagen de ${name}`} loading="lazy" className="w-full h-full" />
         </div>
       </div>
     </div>
