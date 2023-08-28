@@ -8,7 +8,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vitest/globals", "jest", "testing-library/jest-dom", "node"],
+    "types": ["vitest/globals","node"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
