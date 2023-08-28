@@ -4,6 +4,7 @@ import Win from "./Items/Win";
 import  Card  from "./Card";
 import data from "../data/data.json";
 import shuffle from "lodash.shuffle";
+import { Settings } from "./Settings";
 import Score from "./Score/Score";
 import  useGame from "@/hooks/useGame";
 
@@ -30,9 +31,9 @@ export default function Board() {
           })}
           { showModal && <Win />}
         </div>
-        {/* <div className="Restart">
-          <Restart />
-        </div> */}
+                <div className="Restart">
+          <Settings />
+        </div>
       </div>
     </div>
   );

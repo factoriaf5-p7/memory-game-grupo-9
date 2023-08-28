@@ -7,6 +7,8 @@ import { Settings } from "./Settings";
 import data from "../data/data.json";
 import shuffle from "lodash.shuffle";
 import Timer from "./Score/Timer";
+import ButtonsSettings from "./Items/ButtonsSettings";
+import FormSettings from "./FormSettings";
 
  
 
@@ -16,10 +18,8 @@ export  function NotFound() {
   console.log(superheroes);
   return (
     <div>NotFound
-      <div className="Start"><Start/></div>
-      <div className="Ganaste"><Win onClose={function (): void {
-        throw new Error("Function not implemented.");
-      } }/></div>
+{/*        
+    
       <div className="Contador"><Score moves={0} matches={0}/></div>
         <div className= "Settings"><Settings/></div>
         
@@ -27,6 +27,12 @@ export  function NotFound() {
           <Restart />
           </div>
           <div className="Tiempo"><Timer/></div>
+   */}
+          <div className="Tiempo"><h1>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</h1></div>
+
+          <div className="Tiempo"><ButtonsSettings/></div>
+          <div className= "Settings"><Settings/></div>
+          <div className= "Settings"><FormSettings/></div>
   </div>
   )
 }

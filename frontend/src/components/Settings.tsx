@@ -14,21 +14,22 @@ export function Settings() {
         setThemas(setting.themas);
         setDifficulty(setting.difficulty);
       });
-  }, []);
-
-  const handleShowDialog = () => {
-    setDialogOpen(true);
-  };
-
-  const handleCloseDialog = (returnValue: string) => {
-    setDialogOpen(false);
-    console.log(`ReturnValue: ${returnValue}`);
-  };
-
-  const handleConfirm = () => {
-    handleCloseDialog("default");
-  };
-
+    }, []);
+    
+    const handleShowDialog = () => {
+      setDialogOpen(true);
+    };
+    
+    const handleCloseDialog = (returnValue: string) => {
+      setDialogOpen(false);
+      console.log(`ReturnValue: ${returnValue}`);
+    };
+    
+    const handleConfirm = () => {
+      handleCloseDialog("default");
+    };
+    
+    console.log(themas);
   return (
     <div className="relative">
       <ButtonsSettings
