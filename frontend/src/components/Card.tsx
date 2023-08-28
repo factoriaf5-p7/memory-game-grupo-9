@@ -25,7 +25,7 @@ const Card = ({ onClick, card, index, isInactive, isFlipped, isDisabled }) => {
       </div>
       <div className="card-face card-back-face">
       
-        <img src={`img/${card.img}`} alt="pokeball" />
+        <img src={`img/${card.img}`} alt={`Imagen de ${card.name}`} />
       </div>
     </div>
   );
