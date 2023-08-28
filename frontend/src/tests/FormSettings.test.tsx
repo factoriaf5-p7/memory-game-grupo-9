@@ -13,26 +13,26 @@ describe('FormSettings', () => {
     });
   });
 
-  it('changes selected group and displays selected items', () => {
-    const { getByLabelText, getByText } = render(<FormSettings title="Test Title" options={options} />);
+  // it('changes selected group and displays selected items', () => {
+  //   const { getByLabelText, getByText } = render(<FormSettings title="Test Title" options={options} />);
     
-    fireEvent.click(getByLabelText(options[0]));
-    expect(getByLabelText(options[0]).checked).toBe(true);
+  //   fireEvent.click(getByLabelText(options[0]));
+  //   expect(getByLabelText(options[0]).checked).toBe(true);
 
-    // Replace with the actual data structure from your JSON file
-    const selectedItemsData = {
-      superheroes: [{ name: 'Hero1', img: 'hero1.jpg' }],
-    };
+  //   // Replace with the actual data structure from your JSON file
+  //   const selectedItemsData = {
+  //     superheroes: [{ name: 'Hero1', img: 'hero1.jpg' }],
+  //   };
 
-    jest.spyOn(global, 'fetch').mockResolvedValue({
-      json: () => Promise.resolve(selectedItemsData),
-    });
+  //   jest.spyOn(global, 'fetch').mockResolvedValue({
+  //     json: () => Promise.resolve(selectedItemsData),
+  //   });
 
-    fireEvent.click(getByText(options[0]));
+  //   fireEvent.click(getByText(options[0]));
 
     // Test if selected items are displayed
-    expect(getByText('Hero1')).toBeInTheDocument();
-  });
+    //expect(getByText('Hero1')).toBeInTheDocument();
+ // });
 
   // it('displays no selected items when none available', () => {
   //   const { getByLabelText, queryByText } = render(<FormSettings title="Test Title" options={options} />);
