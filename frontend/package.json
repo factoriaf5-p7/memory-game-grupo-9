@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "test:ui": "vitest --ui",
     "test": "vitest",
+    "test:unit": "vitest --root ./src",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -14,7 +16,9 @@
     "@fontsource/bangers": "^5.0.9",
     "@tanstack/react-query": "^4.33.0",
     "@types/lodash.shuffle": "^4.2.7",
+    "@vitest/ui": "^0.34.3",
     "components": "^0.1.0",
+    "happy-dom": "^10.11.0",
     "lodash.shuffle": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

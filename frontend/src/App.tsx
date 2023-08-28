@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import '@fontsource/bangers';
-import { Routes } from "@/routes";
+import { Routes, router as routerConfig } from "@/routes";
+
 
 const router = createBrowserRouter(createRoutesFromElements(Routes))
 const App = () => <RouterProvider router={router} />;
