@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import  Card  from "./Card";
 import data from "../data/data.json";
 import shuffle from "lodash.shuffle";
-import { Settings } from ".";
+import { Settings } from "./Settings";
 import Score from "./Score/Score";
 
 // const superheroes = shuffle(data[0].superheroes.concat(data[0].superheroes));
@@ -113,6 +113,9 @@ export default function Board() {
         </div>
         <div className="Restart">
           <Restart />
+        </div>
+        <div className="Restart">
+          <Settings />
         </div>
       </div>
     </div>
